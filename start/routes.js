@@ -24,28 +24,3 @@ Route.group(() => {
   Route.get('/:id', 'MessageController.getById')
   Route.post('/', 'MessageController.post')
 }).prefix('rest')
-
-
-
-
-
-// Route.get('/', async () => { 
-//   return await load();
-// })
-
-// Route.get('/:id', async ({params, response}) => { 
-//   let jsons = await load();
-//   console.log(params.id);
-//   let json = await jsons.filter(user => Number(user.id) === Number(params.id)); 
-//   console.log(json);
-//   return json;
-// })
-
-
-// async function load() {
-//   const uri = 'https://jsonplaceholder.typicode.com/users';
-
-//   let response = await fetch(uri);
-//   let json = await response.json();
-//   return json; 
-// }
