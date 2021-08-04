@@ -1,3 +1,4 @@
+
 'use strict'
 
 /*
@@ -15,7 +16,25 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const fetch = use('node-fetch')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+Route.get('/', async () => { 
+  return await load();
 })
+
+Route.get('/:id', async ({params, response}) => { 
+  let jsons = await load();
+  console.log(params.id);
+  let json = await jsons.filter(user => Number(user.id) === Number(params.id)); 
+  console.log(json);
+  return json;
+})
+
+
+async function load() {
+  const uri = 'https://jsonplaceholder.typicode.com/users';
+
+  let response = await fetch(uri);
+  let json = await response.json();
+  return json; 
+}
