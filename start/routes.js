@@ -27,8 +27,6 @@ Route.group(() => {
 
 
 
-
-
 // Route.get('/', async () => { 
 //   return await load();
 // })
