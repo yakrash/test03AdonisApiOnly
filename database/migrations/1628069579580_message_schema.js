@@ -7,6 +7,7 @@ class MessageSchema extends Schema {
   up () {
     this.create('messages', (table) => {
       table.increments()
+      table.string('text', 1000).notNullable()
       table.timestamps()
     })
   }
