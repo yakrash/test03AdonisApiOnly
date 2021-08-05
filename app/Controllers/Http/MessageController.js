@@ -7,11 +7,11 @@
 
 const Message = use('App/Models/Message');
 const TelegrafBot = use('App/service/TelegrafBot');
+const telegraf = new TelegrafBot();
 
 class MessageController {
 
   async post({ request, response, view }) {
-    const telegraf = new TelegrafBot();
     const messageNew = new Message();
     let { text } = request.body;
     messageNew.text = text;
