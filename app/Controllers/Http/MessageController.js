@@ -11,8 +11,12 @@
 
 const Message = use('App/Models/Message');
 const TelegrafBot = use('App/service/TelegrafBot');
+const telegraf = new TelegrafBot();
 
 class MessageController {
+  constructor() {
+    console.log('MessageController')
+  }
   /**
    * Show a list of all messages.
    * GET messages
@@ -32,7 +36,7 @@ class MessageController {
    * GET messages/create
    */
   async post ({ request, response, view }) {
-    const telegraf = new TelegrafBot();
+    
     const messageNew = new Message();
     let {text} = request.body;
     messageNew.text = text;
