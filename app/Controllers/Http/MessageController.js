@@ -24,6 +24,10 @@ class MessageController {
     console.log(`add messageId ${messageNew.id} with text ${messageNew.text}`);
     return response.json(messageNew);
   }
+
+  async index ({ request, response, view }) {
+    return await Message.all();
+  }
 }
 
 module.exports = MessageController
